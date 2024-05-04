@@ -173,3 +173,16 @@ void searchData()
     }
 
 }
+
+int main()
+{
+    while (true)
+    {
+        try
+        {
+            
+        }
+        
+    }
+    
+}
