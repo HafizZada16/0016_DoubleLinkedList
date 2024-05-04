@@ -85,7 +85,7 @@ void deleteNode()
     int rollNo;
 
     cout << "\nEnter the roll number of the student whose record is to be deleted";
-    cin >> rollNo;
+    cin >> rollNo; // step 3: get the roll number to be deleted
 
     if (START == NULL)
     {
@@ -93,9 +93,10 @@ void deleteNode()
         return;
     }
 
-    current = START;
+    current = START; // step 1: start from the first node
     previous = NULL;
 
+    // While the node to be deleted
     while (current != NULL && current->noMhs != rollNo)
     {
         previous = current;
@@ -108,22 +109,24 @@ void deleteNode()
         return;
     }
     
-
+    // Node to be deleted is the first node
     if (current == START)
     {
-        START = START->next;
+        START = START->next; // step 2: update the START pointer
         if (START != NULL)
         {
             START->prev = NULL;
         }
     }
     else
-    {
+    { // Node to be deleted is not the first node
         previous->next = current->next;
-        {
+        { // If there's a successor, update its prev pointer
             current->next->prev = previous;
         }
     }
+
+    // Release the memory of the node marked as current
     delete current;
     cout << "\x1b[32mRecord with roll number " << rollNo << " deleted\x1b[0m" << endl;
 }
@@ -140,11 +143,11 @@ void traverse()
         else
         {
             cout << "\nRecords in ascending order of roll number are:" << endl;
-            Node *currentNode = START;
-            while (currentNode != NULL)
+            Node *currentNode = START;  // step 1
+            while (currentNode != NULL) // step 2
             {
-                cout << currentNode->noMhs << " " << currentNode->name << endl;
-                currentNode = currentNode->next;
+                cout << currentNode->noMhs << " " << currentNode->name << endl; // step 3
+                currentNode = currentNode->next;                                // step 4
             }
         }
 }
